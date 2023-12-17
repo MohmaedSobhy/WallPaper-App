@@ -16,8 +16,8 @@ class GetStartedCoverView extends StatelessWidget {
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Colors.white,
-              Colors.white.withOpacity(0.5),
+              Theme.of(context).scaffoldBackgroundColor,
+              Theme.of(context).scaffoldBackgroundColor.withOpacity(0.5),
               Colors.transparent,
             ],
             begin: Alignment.bottomCenter,
