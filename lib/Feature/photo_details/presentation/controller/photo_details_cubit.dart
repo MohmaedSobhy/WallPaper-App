@@ -19,23 +19,5 @@ class PhotoDetailsCubit extends Cubit<PhotoDetailsState> {
     });
   }
 
-  Future<void> shareImage({required String photoUrl}) async {
-    emit(ShareImageLoading());
-    try {
-      // Response response = await DioService.getData(url: photoUrl);
-      // final imageBytes = response.data;
-      // final t = await getTemporaryDirectory();
-      // final path = '${t.path}/sharedImage.jpg';
-      // File(path).writeAsBytes(imageBytes);
-      // final result = await Share.shareXFiles([XFile(path)]);
-      // if (result.status == ShareResultStatus.success) {
-      //   emit(SuccessShareImage());
-      // } else {
-      //   emit(FailedToShareImage());
-      // }
-    } catch (error) {
-      log(error.toString());
-      emit(FailedToShareImage());
-    }
-  }
+  Future<void> shareImage({required String photoUrl}) async {}
 }
