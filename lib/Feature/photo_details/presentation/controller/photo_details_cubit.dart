@@ -1,6 +1,11 @@
 import 'dart:developer';
+import 'dart:io';
 import 'package:bloc/bloc.dart';
+import 'package:dio/dio.dart';
 import 'package:gallery_saver/gallery_saver.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:wall_papper/core/api/dio_service.dart';
 part 'photo_details_state.dart';
 
 class PhotoDetailsCubit extends Cubit<PhotoDetailsState> {
@@ -19,5 +24,19 @@ class PhotoDetailsCubit extends Cubit<PhotoDetailsState> {
     });
   }
 
-  Future<void> shareImage({required String photoUrl}) async {}
+  Future<void> shareImage({required String photoUrl}) async {
+    emit(ShareImageLoading());
+    try {
+      Response response = await DioService.downloadImage(url: photoUrl);
+      if (response.statusCode == 200) {
+        final tempDirectory = await getTemporaryDirectory();
+        final tempFile = File('${tempDirectory.path}/image.jpg');
+        await tempFile.writeAsBytes(response.data);
+        await Share.shareXFiles([XFile(tempFile.path)]);
+      }
+    } catch (error) {
+      log(error.toString());
+      emit(FailedToShareImage());
+    }
+  }
 }

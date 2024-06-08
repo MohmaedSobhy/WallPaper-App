@@ -133,4 +133,19 @@ class DioService {
       rethrow;
     }
   }
+
+  static Future<Response> downloadImage({
+    required String url,
+    Map<String, dynamic>? data,
+    String? token,
+    //String lang = 'en',
+  }) async {
+    try {
+      final Response response = await dio.get(url,
+          data: data, options: Options(responseType: ResponseType.bytes));
+      return response;
+    } catch (e) {
+      rethrow;
+    }
+  }
 }
