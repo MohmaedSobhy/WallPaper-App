@@ -31,7 +31,6 @@ class PhotoDetailsScreen extends StatelessWidget {
                 PhotoDetailsCubit.instanse
                     .shareImage(photoUrl: photo.src!.original!);
               },
-              color: Colors.black,
               icon: const Icon(CupertinoIcons.share),
             )
           ],

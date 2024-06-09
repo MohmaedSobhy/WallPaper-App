@@ -47,9 +47,10 @@ class AppTheme {
     primaryColor: AppColor.primaryColor,
     useMaterial3: false,
     primarySwatch: AppColor.primarySwatch,
-    appBarTheme: const AppBarTheme(
+    appBarTheme: AppBarTheme(
       elevation: 0.0,
-      iconTheme: IconThemeData(
+      backgroundColor: AppColor.backgroundBlack,
+      iconTheme: const IconThemeData(
         color: Colors.white,
       ),
     ),

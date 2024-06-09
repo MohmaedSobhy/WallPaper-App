@@ -37,8 +37,6 @@ class HomeViewBody extends StatelessWidget {
         child: CustomScrollView(
           slivers: [
             SliverAppBar(
-              elevation: 0,
-              backgroundColor: Colors.white,
               title: Text(
                 AppString.discover,
                 style: context.getTheme().textTheme.headlineSmall,

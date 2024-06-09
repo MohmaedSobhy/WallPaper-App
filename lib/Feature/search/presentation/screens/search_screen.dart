@@ -16,7 +16,6 @@ class SearchScreen extends StatelessWidget {
       value: SearchCubit.instanse..getSearchResultes(searchKey: searchKey),
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white,
           title: CustomeTextFormField(
             controller: SearchCubit.instanse.searchController,
             onFieldSubmitted: (value) {
