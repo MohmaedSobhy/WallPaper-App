@@ -1,10 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wall_papper/Feature/edit_photo/presentation/controller/edit_photo_cubit.dart';
 import 'package:wall_papper/Feature/edit_photo/presentation/widgets/custome_icon_button.dart';
-import 'package:wall_papper/Feature/edit_photo/presentation/widgets/show_confirmation_dialog.dart';
 import 'package:wall_papper/core/extension/context_extension.dart';
 import 'package:wall_papper/core/widget/cached_network_image_widget.dart';
+import 'edit_photo_arrow_back_button.dart';
+import 'edit_photo_opacity_slider.dart';
+import 'edit_photo_share_button.dart';
 
 class EditPhotoViewBody extends StatelessWidget {
   final String photoUrl;
@@ -12,75 +14,41 @@ class EditPhotoViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        CustomeCachedNetworkImage(
-          photoUrl: photoUrl,
-          heigth: double.infinity,
-        ),
-        Positioned(
-          top: context.getScreenHeight() * 0.05,
-          left: 15,
-          child: CustomeIconButton(
-            onTap: () {
-              showConfirmationDialoge(context);
-            },
-            icon: Icons.arrow_back,
-          ),
-        ),
-        Positioned(
-          top: context.getScreenHeight() * 0.05,
-          right: 15,
-          child: Row(
+    return BlocProvider.value(
+      value: EditPhotoCubit.getInstanse(),
+      child: BlocBuilder<EditPhotoCubit, EditPhotoState>(
+        builder: (context, state) {
+          return Stack(
+            fit: StackFit.expand,
             children: [
-              CustomeIconButton(
-                onTap: () {},
-                icon: CupertinoIcons.share,
+              CustomeCachedNetworkImage(
+                photoUrl: photoUrl,
+                heigth: double.infinity,
               ),
-              const SizedBox(
-                width: 20,
-              ),
-              CustomeIconButton(
-                onTap: () {},
-                icon: CupertinoIcons.cloud_download,
-              ),
-            ],
-          ),
-        ),
-        Positioned(
-          bottom: context.getScreenHeight() * 0.05,
-          left: 15,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              SizedBox(
-                height: context.getScreenHeight() * 0.5,
-                child: RotatedBox(
-                  quarterTurns: 3,
-                  child: Slider(
-                    min: 0,
-                    max: 1,
-                    value: 0.5,
-                    onChanged: (value) {},
+              Container(
+                width: double.infinity,
+                height: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.black.withOpacity(
+                    EditPhotoCubit.getInstanse().imageOpacity,
                   ),
                 ),
               ),
-              CustomeIconButton(
-                onTap: () {},
-                icon: CupertinoIcons.layers,
+              const EditPhotoArrowBack(),
+              const EditPhotoShareButton(),
+              const EditPhotoOpacitySlider(),
+              Positioned(
+                bottom: context.getScreenHeight() * 0.05,
+                left: 75,
+                child: CustomeIconButton(
+                  onTap: () {},
+                  icon: Icons.text_fields_rounded,
+                ),
               ),
             ],
-          ),
-        ),
-        Positioned(
-          bottom: context.getScreenHeight() * 0.05,
-          left: 75,
-          child: CustomeIconButton(
-            onTap: () {},
-            icon: Icons.text_fields_rounded,
-          ),
-        ),
-      ],
+          );
+        },
+      ),
     );
   }
 }
