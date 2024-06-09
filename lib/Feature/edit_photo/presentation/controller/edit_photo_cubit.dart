@@ -4,7 +4,7 @@ part 'edit_photo_state.dart';
 class EditPhotoCubit extends Cubit<EditPhotoState> {
   static EditPhotoCubit? _instanse;
   EditPhotoCubit._() : super(EditPhotoInitial());
-  double imageOpacity = 0.5;
+  double imageOpacity = 0;
   bool sliderVisiable = false;
   static EditPhotoCubit getInstanse() {
     _instanse ??= EditPhotoCubit._();
