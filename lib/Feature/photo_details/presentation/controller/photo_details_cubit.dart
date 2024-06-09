@@ -29,10 +29,13 @@ class PhotoDetailsCubit extends Cubit<PhotoDetailsState> {
     try {
       Response response = await DioService.downloadImage(url: photoUrl);
       if (response.statusCode == 200) {
+        emit(SuccessShareImage());
         final tempDirectory = await getTemporaryDirectory();
         final tempFile = File('${tempDirectory.path}/image.jpg');
         await tempFile.writeAsBytes(response.data);
         await Share.shareXFiles([XFile(tempFile.path)]);
+      } else {
+        emit(FailedToShareImage());
       }
     } catch (error) {
       log(error.toString());
