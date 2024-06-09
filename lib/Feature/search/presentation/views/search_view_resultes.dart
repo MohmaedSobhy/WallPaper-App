@@ -5,8 +5,8 @@ import '../controller/search_cubit.dart';
 import '../../../../core/widget/fialed_loading_photos_view.dart';
 import 'success_loading_resultes_view.dart';
 
-class SearchViewBody extends StatelessWidget {
-  const SearchViewBody({super.key});
+class SearchViewResultes extends StatelessWidget {
+  const SearchViewResultes({super.key});
 
   @override
   Widget build(BuildContext context) {

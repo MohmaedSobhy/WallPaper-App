@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:flutter_offline/flutter_offline.dart';
+import 'package:wall_papper/Feature/search/presentation/views/search_screen_view_body.dart';
+import 'package:wall_papper/core/widget/no_internect_connection.dart';
 import '../../../../core/widget/custome_text_form_field.dart';
 import '../controller/search_cubit.dart';
-import '../views/search_view_body.dart';
 
 class SearchScreen extends StatelessWidget {
   final String? searchKey;
@@ -25,13 +26,15 @@ class SearchScreen extends StatelessWidget {
             },
           ),
         ),
-        body: const CustomScrollView(
-          slivers: [
-            SliverPadding(
-              padding: EdgeInsets.all(12),
-              sliver: SearchViewBody(),
-            )
-          ],
+        body: OfflineBuilder(
+          connectivityBuilder: (context, connectivity, child) {
+            return (connectivity != ConnectivityResult.none)
+                ? const SearchScreenViewBody()
+                : const Center(
+                    child: NoInternetConnection(),
+                  );
+          },
+          child: const SearchScreenViewBody(),
         ),
       ),
     );
