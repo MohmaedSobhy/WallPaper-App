@@ -4,10 +4,9 @@ import 'package:flutter/widgets.dart';
 
 class CustomeCachedNetworkImage extends StatelessWidget {
   final String photoUrl;
-  const CustomeCachedNetworkImage({
-    super.key,
-    required this.photoUrl,
-  });
+  final double? heigth;
+  const CustomeCachedNetworkImage(
+      {super.key, required this.photoUrl, this.heigth});
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +14,7 @@ class CustomeCachedNetworkImage extends StatelessWidget {
       imageUrl: photoUrl,
       fit: BoxFit.cover,
       width: double.infinity,
+      height: heigth,
       progressIndicatorBuilder: (context, url, downloadProgress) {
         return const Center(child: CircularProgressIndicator());
       },

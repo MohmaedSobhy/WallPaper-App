@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wall_papper/Feature/edit_photo/presentation/screens/edit_photo_screen.dart';
 import '../../Feature/get_started/presentation/screens/get_started_screen.dart';
 import '../../Feature/home/data/model/photo_model.dart';
 import '../../Feature/home/presentation/screens/home_screen.dart';
@@ -38,6 +39,10 @@ abstract class AppRoutes {
           return PhotoDetailsScreen(
             photo: settings.arguments as PhotoModel,
           );
+        });
+      case editPhoto:
+        return BaseRoute(pageBuilder: (_, __, ___) {
+          return EditPhotoScreen(photoUrl: settings.arguments as String);
         });
     }
     return null;

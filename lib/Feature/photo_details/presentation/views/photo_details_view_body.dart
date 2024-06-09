@@ -3,7 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wall_papper/Feature/home/data/model/photo_model.dart';
 import 'package:wall_papper/Feature/photo_details/presentation/controller/photo_details_cubit.dart';
 import 'package:wall_papper/Feature/photo_details/presentation/views/photo_details_information.dart';
-import 'package:wall_papper/Feature/photo_details/presentation/widgets/cached_network_image_widget.dart';
+import 'package:wall_papper/core/routes/app_routes.dart';
+import 'package:wall_papper/core/widget/cached_network_image_widget.dart';
 import 'package:wall_papper/Feature/photo_details/presentation/widgets/download_photo_button.dart';
 import 'package:wall_papper/Feature/photo_details/presentation/widgets/edit_photo_button.dart';
 import 'package:wall_papper/Feature/photo_details/presentation/widgets/loading_dialog.dart';
@@ -65,7 +66,13 @@ class PhotoDetailsViewBody extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        const EditPhotoButton(),
+                        EditPhotoButton(
+                          onTap: () {
+                            context.pushNamed(
+                                name: AppRoutes.editPhoto,
+                                arguments: photo.src!.original);
+                          },
+                        ),
                         DownloadPhotoButton(
                           onTap: () {
                             PhotoDetailsCubit.instanse.downloadImage(

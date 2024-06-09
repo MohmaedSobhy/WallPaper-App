@@ -3,12 +3,13 @@ import 'package:wall_papper/core/extension/context_extension.dart';
 import 'package:wall_papper/core/localization/app_string.dart';
 
 class EditPhotoButton extends StatelessWidget {
-  const EditPhotoButton({super.key});
+  final VoidCallback onTap;
+  const EditPhotoButton({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: onTap,
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.symmetric(vertical: 12),
         shape: RoundedRectangleBorder(
