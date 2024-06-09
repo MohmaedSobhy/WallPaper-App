@@ -13,3 +13,7 @@ final class LoadingEditPhoto extends EditPhotoState {}
 final class SuccessDownloadEditPhoto extends EditPhotoState {}
 
 final class FailedDownloadEditPhoto extends EditPhotoState {}
+
+final class SucessShareEditPhoto extends EditPhotoState {}
+
+final class FailedShareEditPhoto extends EditPhotoState {}

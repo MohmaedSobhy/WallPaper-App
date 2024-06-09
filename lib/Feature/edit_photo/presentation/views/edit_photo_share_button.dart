@@ -16,7 +16,7 @@ class EditPhotoShareButton extends StatelessWidget {
         children: [
           CustomeIconButton(
             onTap: () {
-              EditPhotoCubit.getInstanse().downloadImage();
+              EditPhotoCubit.getInstanse().shareImage();
             },
             icon: CupertinoIcons.share,
           ),

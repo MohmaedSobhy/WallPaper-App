@@ -1,7 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:screenshot/screenshot.dart';
+import 'package:share_plus/share_plus.dart';
 part 'edit_photo_state.dart';
 
 class EditPhotoCubit extends Cubit<EditPhotoState> {
@@ -16,7 +20,24 @@ class EditPhotoCubit extends Cubit<EditPhotoState> {
     return _instanse!;
   }
 
-  void shareImage() {}
+  void shareImage() async {
+    emit(LoadingEditPhoto());
+    screenshotController.capture().then((capturedImage) async {
+      try {
+        if (capturedImage != null) {
+          emit(SucessShareEditPhoto());
+          final tempDirectory = await getTemporaryDirectory();
+          final tempFile = File('${tempDirectory.path}/image.jpg');
+          await tempFile.writeAsBytes(capturedImage);
+          await Share.shareXFiles([XFile(tempFile.path)]);
+        } else {
+          emit(FailedShareEditPhoto());
+        }
+      } catch (error) {
+        emit(FailedShareEditPhoto());
+      }
+    });
+  }
 
   void downloadImage() {
     emit(LoadingEditPhoto());

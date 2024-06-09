@@ -21,7 +21,9 @@ class EditPhotoViewBody extends StatelessWidget {
       value: EditPhotoCubit.getInstanse(),
       child: BlocConsumer<EditPhotoCubit, EditPhotoState>(
         listener: (context, state) {
-          if (state is LoadingEditPhoto) {
+          if (state is SucessShareEditPhoto || state is FailedShareEditPhoto) {
+            context.pop();
+          } else if (state is LoadingEditPhoto) {
             showDialogLoading(context);
           } else if (state is SuccessDownloadEditPhoto) {
             context.pop();
