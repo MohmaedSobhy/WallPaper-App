@@ -7,4 +7,4 @@ final class EditPhotoInitial extends EditPhotoState {}
 
 final class ChangeImageOpacity extends EditPhotoState {}
 
-final class SliderVisiable extends EditPhotoState {}
+final class ChangeSliderVisiablity extends EditPhotoState {}
