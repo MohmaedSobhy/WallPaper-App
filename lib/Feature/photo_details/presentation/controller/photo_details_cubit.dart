@@ -1,8 +1,10 @@
 import 'dart:developer';
 import 'dart:io';
+import 'dart:typed_data';
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gallery_saver/gallery_saver.dart';
+import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:wall_papper/core/api/dio_service.dart';
@@ -15,13 +17,17 @@ class PhotoDetailsCubit extends Cubit<PhotoDetailsState> {
 
   Future<void> downloadImage({required String photoUrl}) async {
     emit(PreparePhotoToDownload());
-    await GallerySaver.saveImage(photoUrl).then((value) {
-      if (value == true) {
-        emit(SuccessDownloadImage());
-      } else {
-        emit(FailedDownloadImage());
-      }
-    });
+    try {
+      Response response = await DioService.downloadImage(url: photoUrl);
+      await ImageGallerySaver.saveImage(
+        Uint8List.fromList(response.data),
+        quality: 60,
+        name: "hello",
+      );
+      emit(SuccessDownloadImage());
+    } catch (error) {
+      emit(FailedDownloadImage());
+    }
   }
 
   Future<void> shareImage({required String photoUrl}) async {
