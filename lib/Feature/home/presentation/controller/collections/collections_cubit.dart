@@ -8,6 +8,7 @@ part 'collections_state.dart';
 
 class CollectionsCubit extends Cubit<CollectionsState> {
   static CollectionsCubit instances = CollectionsCubit._();
+  List<CollectionModel> collections = [];
   CollectionsCubit._() : super(CollectionsInitial());
 
   getColleciton() async {
@@ -17,7 +18,9 @@ class CollectionsCubit extends Cubit<CollectionsState> {
     data.fold((failed) {
       emit(FailedLoadingCollection(erroMessage: failed.errorMessage));
     }, (success) {
-      emit(SuccessLoadingCollection(collection: success));
+      collections.clear();
+      collections.addAll(success);
+      emit(SuccessLoadingCollection());
     });
   }
 }

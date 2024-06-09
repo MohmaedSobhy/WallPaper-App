@@ -10,13 +10,16 @@ class PopulerPhotosView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PopulerPhotoCubit, PopulerPhotoState>(
-      builder: (context, state) {
-        if (state is SuccessLoadingPopulerPhotoState) {
-          return const SuccessLoadingPopulerPhotosView();
-        }
-        return const FailedLoadingPhotosView();
-      },
+    return BlocProvider.value(
+      value: PopulerPhotoCubit.instances..getPopulerPhoto(),
+      child: BlocBuilder<PopulerPhotoCubit, PopulerPhotoState>(
+        builder: (context, state) {
+          if (state is SuccessLoadingPopulerPhotoState) {
+            return const SuccessLoadingPopulerPhotosView();
+          }
+          return const FailedLoadingPhotosView();
+        },
+      ),
     );
   }
 }

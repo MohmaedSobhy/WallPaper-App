@@ -15,15 +15,8 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => CollectionsCubit.instances..getColleciton(),
-        ),
-        BlocProvider(
-          create: (context) => PopulerPhotoCubit.instances..getPopulerPhoto(),
-        ),
-      ],
+    return BlocProvider.value(
+      value: CollectionsCubit.instances..getColleciton(),
       child: SmartRefresher(
         controller: PopulerPhotoCubit.instances.refreshController,
         enablePullUp: true,

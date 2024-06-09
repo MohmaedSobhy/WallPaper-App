@@ -8,8 +8,7 @@ final class CollectionsInitial extends CollectionsState {}
 final class LoadingCollectionState extends CollectionsState {}
 
 final class SuccessLoadingCollection extends CollectionsState {
-  final List<CollectionModel> collection;
-  SuccessLoadingCollection({required this.collection});
+  SuccessLoadingCollection();
 }
 
 final class FailedLoadingCollection extends CollectionsState {

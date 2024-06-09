@@ -16,20 +16,22 @@ class CollectionListView extends SliverPersistentHeaderDelegate {
         if (state is SuccessLoadingCollection) {
           return ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: state.collection.length,
+            itemCount: CollectionsCubit.instances.collections.length,
             itemBuilder: (context, index) {
               return InkWell(
                 onTap: () {
                   context.pushNamed(
                     name: AppRoutes.search,
-                    arguments: state.collection[index].title,
+                    arguments:
+                        CollectionsCubit.instances.collections[index].title,
                   );
                 },
                 child: Padding(
                   padding:
                       EdgeInsets.only(right: 8, left: (index == 0) ? 8 : 0),
                   child: CollectionItem(
-                    collectionModel: state.collection[index],
+                    collectionModel:
+                        CollectionsCubit.instances.collections[index],
                   ),
                 ),
               );
@@ -49,6 +51,6 @@ class CollectionListView extends SliverPersistentHeaderDelegate {
 
   @override
   bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
-    return true;
+    return false;
   }
 }
