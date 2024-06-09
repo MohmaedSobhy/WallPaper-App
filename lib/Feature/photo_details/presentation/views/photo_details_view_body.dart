@@ -7,7 +7,7 @@ import 'package:wall_papper/core/routes/app_routes.dart';
 import 'package:wall_papper/core/widget/cached_network_image_widget.dart';
 import 'package:wall_papper/Feature/photo_details/presentation/widgets/download_photo_button.dart';
 import 'package:wall_papper/Feature/photo_details/presentation/widgets/edit_photo_button.dart';
-import 'package:wall_papper/Feature/photo_details/presentation/widgets/loading_dialog.dart';
+import 'package:wall_papper/core/helper/loading_dialog.dart';
 import 'package:wall_papper/core/extension/context_extension.dart';
 import 'package:wall_papper/core/localization/app_string.dart';
 
