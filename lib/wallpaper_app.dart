@@ -10,8 +10,8 @@ class WallPaperApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.light,
-      themeMode: ThemeMode.light,
+      theme: AppTheme.dark,
+      // themeMode: ThemeMode.light,
       darkTheme: AppTheme.dark,
       initialRoute: AppRoutes.getStarted,
       onGenerateRoute: AppRoutes.onGenerateRoute,
