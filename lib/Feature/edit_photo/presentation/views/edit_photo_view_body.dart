@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:screenshot/screenshot.dart';
 import 'package:wall_papper/Feature/edit_photo/presentation/controller/edit_photo_cubit.dart';
 import 'package:wall_papper/Feature/edit_photo/presentation/views/edit_photo_forground.dart';
 import 'package:wall_papper/Feature/edit_photo/presentation/widgets/custome_icon_button.dart';
 import 'package:wall_papper/core/extension/context_extension.dart';
+import '../../../../core/helper/loading_dialog.dart';
+import '../../../../core/localization/app_string.dart';
 import 'edit_photo_arrow_back_button.dart';
 import 'edit_photo_opacity_slider.dart';
 import 'edit_photo_share_button.dart';
@@ -16,12 +19,34 @@ class EditPhotoViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider.value(
       value: EditPhotoCubit.getInstanse(),
-      child: BlocBuilder<EditPhotoCubit, EditPhotoState>(
+      child: BlocConsumer<EditPhotoCubit, EditPhotoState>(
+        listener: (context, state) {
+          if (state is LoadingEditPhoto) {
+            showDialogLoading(context);
+          } else if (state is SuccessDownloadEditPhoto) {
+            context.pop();
+            showDialogeDownloadState(
+              context,
+              title: AppString.successDownload,
+              icon: Icons.check_circle_outline,
+            );
+          } else if (state is FailedDownloadEditPhoto) {
+            context.pop();
+            showDialogeDownloadState(
+              context,
+              title: AppString.failedDownload,
+              icon: Icons.cancel_outlined,
+            );
+          }
+        },
         builder: (context, state) {
           return Stack(
             fit: StackFit.expand,
             children: [
-              EditPhotoForground(photoUrl: photoUrl),
+              Screenshot(
+                controller: EditPhotoCubit.getInstanse().screenshotController,
+                child: EditPhotoForground(photoUrl: photoUrl),
+              ),
               const EditPhotoArrowBack(),
               const EditPhotoShareButton(),
               const EditPhotoOpacitySlider(),

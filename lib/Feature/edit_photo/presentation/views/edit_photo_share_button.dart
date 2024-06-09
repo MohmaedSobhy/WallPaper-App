@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:wall_papper/Feature/edit_photo/presentation/controller/edit_photo_cubit.dart';
 import 'package:wall_papper/core/extension/context_extension.dart';
 
 import '../widgets/custome_icon_button.dart';
@@ -14,14 +15,18 @@ class EditPhotoShareButton extends StatelessWidget {
       child: Row(
         children: [
           CustomeIconButton(
-            onTap: () {},
+            onTap: () {
+              EditPhotoCubit.getInstanse().downloadImage();
+            },
             icon: CupertinoIcons.share,
           ),
           const SizedBox(
             width: 20,
           ),
           CustomeIconButton(
-            onTap: () {},
+            onTap: () {
+              EditPhotoCubit.getInstanse().downloadImage();
+            },
             icon: CupertinoIcons.cloud_download,
           ),
         ],
