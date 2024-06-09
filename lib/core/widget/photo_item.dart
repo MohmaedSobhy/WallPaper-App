@@ -19,7 +19,13 @@ class PhotoItem extends StatelessWidget {
       },
       child: GridTile(
         footer: Container(
-          color: Colors.black.withOpacity(0.3),
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.only(
+              bottomLeft: Radius.circular(10),
+              bottomRight: Radius.circular(10),
+            ),
+            color: Colors.black.withOpacity(0.3),
+          ),
           padding: const EdgeInsets.all(5),
           child: Text(
             photo.photographer!,
@@ -34,6 +40,7 @@ class PhotoItem extends StatelessWidget {
           imageBuilder: (context, imageProvider) {
             return Container(
               decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
                 image: DecorationImage(
                   image: imageProvider,
                   fit: BoxFit.cover,

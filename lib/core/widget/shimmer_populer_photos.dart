@@ -10,7 +10,10 @@ class ShimmerPhotoView extends StatelessWidget {
       baseColor: Colors.grey[300]!,
       highlightColor: Colors.white,
       child: Container(
-        color: Colors.white,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(10),
+        ),
       ),
     );
   }
