@@ -1,6 +1,5 @@
 part of 'collections_cubit.dart';
 
-@immutable
 sealed class CollectionsState {}
 
 final class CollectionsInitial extends CollectionsState {}

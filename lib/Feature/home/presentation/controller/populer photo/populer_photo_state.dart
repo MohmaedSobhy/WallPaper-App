@@ -1,6 +1,5 @@
 part of 'populer_photo_cubit.dart';
 
-@immutable
 sealed class PopulerPhotoState {}
 
 final class PopulerPhotoInitial extends PopulerPhotoState {}

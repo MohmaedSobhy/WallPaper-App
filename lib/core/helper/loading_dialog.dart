@@ -78,7 +78,7 @@ void showBanner(
       actions: actions,
     ),
   );
-  Timer(Duration(milliseconds: 500), () {
+  Timer(const Duration(milliseconds: 500), () {
     ScaffoldMessenger.of(context).hideCurrentMaterialBanner();
   });
 }
