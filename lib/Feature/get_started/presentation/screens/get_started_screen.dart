@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../views/get_started_body_view.dart';
 
 class GetStartedScreen extends StatelessWidget {
