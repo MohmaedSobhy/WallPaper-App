@@ -1,17 +1,19 @@
 abstract class AppString {
-  static String exploreMore = 'Explore More';
-  static String discover = 'Discover';
-  static String welcomeMessage =
+  static const String exploreMore = 'Explore More';
+  static const String discover = 'Discover';
+  static const String welcomeMessage =
       'The Best free stock photos,royalty free images & video shared by creators';
-  static String populaImages = 'Popular Images';
-  static String detailPhoto = 'Detail Photo';
-  static String editPhoto = 'Edit Photo';
-  static String download = 'Download';
-  static String successDownload = 'Success Download!';
-  static String failedDownload = 'Failed Download';
-  static String discardEdits = 'Discard Edits';
-  static String dicardEditsMessage =
+  static const String populaImages = 'Popular Images';
+  static const String detailPhoto = 'Detail Photo';
+  static const String editPhoto = 'Edit Photo';
+  static const String download = 'Download';
+  static const String successDownload = 'Success Download!';
+  static const String failedDownload = 'Failed Download';
+  static const String discardEdits = 'Discard Edits';
+  static const String dicardEditsMessage =
       'Are you sure want to Exist ? You will lose all the edits you have made';
-  static String search = 'Search keyword, nature';
-  static String noResultes = 'No Search Resultes';
+  static const String search = 'Search keyword, nature';
+  static const String noResultes = 'No Search Resultes';
+  static const String sureToDeleteText =
+      'Are you sure want to delete this widget ?';
 }
