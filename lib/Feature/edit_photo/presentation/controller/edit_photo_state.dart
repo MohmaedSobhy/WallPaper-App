@@ -17,3 +17,5 @@ final class FailedDownloadEditPhoto extends EditPhotoState {}
 final class SucessShareEditPhoto extends EditPhotoState {}
 
 final class FailedShareEditPhoto extends EditPhotoState {}
+
+final class TextWidgetVisiable extends EditPhotoState {}

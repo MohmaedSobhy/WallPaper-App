@@ -1,11 +1,13 @@
 import 'dart:io';
 
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:wall_papper/Feature/add_text_layout/controller/add_text_layout_cubit.dart';
 part 'edit_photo_state.dart';
 
 class EditPhotoCubit extends Cubit<EditPhotoState> {
@@ -13,6 +15,7 @@ class EditPhotoCubit extends Cubit<EditPhotoState> {
   EditPhotoCubit._() : super(EditPhotoInitial());
   double imageOpacity = 0;
   bool sliderVisiable = false;
+  bool textWidgetIsVisiable = false;
   ScreenshotController screenshotController = ScreenshotController();
 
   static EditPhotoCubit getInstanse() {
@@ -65,5 +68,13 @@ class EditPhotoCubit extends Cubit<EditPhotoState> {
   void visibilitySlider() {
     sliderVisiable = !sliderVisiable;
     emit(ChangeSliderVisiablity());
+  }
+
+  void textWidgetVisiable(bool value) {
+    textWidgetIsVisiable = value;
+    if (value == false) {
+      AddTextLayoutCubit.instanse.textEditingController.text = ' ';
+    }
+    emit(TextWidgetVisiable());
   }
 }
