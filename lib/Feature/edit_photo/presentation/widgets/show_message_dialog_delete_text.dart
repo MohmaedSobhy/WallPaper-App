@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:wall_papper/Feature/edit_photo/presentation/controller/edit_photo_cubit.dart';
 import 'package:wall_papper/Feature/edit_photo/presentation/widgets/custome_alert_dialoge.dart';
-import 'package:wall_papper/core/extension/context_extension.dart';
 import 'package:wall_papper/core/localization/app_string.dart';
 
-void showConfirmationDialoge(BuildContext context) {
-  showDialog(
+Future<bool> showMessageSureToDelteTextDialoge(BuildContext context) async {
+  return await showDialog(
     context: context,
     barrierDismissible: false,
     builder: (context) {
@@ -16,13 +14,8 @@ void showConfirmationDialoge(BuildContext context) {
         discard: () {
           Navigator.pop(context, true);
         },
-        messageDialog: AppString.dicardEditsMessage,
+        messageDialog: AppString.sureToDeleteText,
       );
     },
-  ).then((result) {
-    if (result == true) {
-      EditPhotoCubit.getInstanse().textWidgetVisiable(false);
-      context.pop();
-    }
-  });
+  );
 }
