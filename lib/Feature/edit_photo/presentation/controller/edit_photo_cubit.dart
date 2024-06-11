@@ -70,9 +70,6 @@ class EditPhotoCubit extends Cubit<EditPhotoState> {
 
   void textWidgetVisiable(bool value) {
     textWidgetIsVisiable = value;
-    if (value == false) {
-      AddTextLayoutCubit.instanse.textEditingController.text = ' ';
-    }
     emit(TextWidgetVisiable());
   }
 }
