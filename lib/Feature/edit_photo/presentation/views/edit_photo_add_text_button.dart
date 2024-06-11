@@ -17,6 +17,7 @@ class EditPhotoAddTextButton extends StatelessWidget {
           if (EditPhotoCubit.getInstanse().sliderVisiable) {
             EditPhotoCubit.getInstanse().visibilitySlider();
           }
+          EditPhotoCubit.getInstanse().textWidgetVisiable(false);
           showDialog(
             context: context,
             useSafeArea: false,
