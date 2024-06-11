@@ -5,7 +5,6 @@ import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:wall_papper/Feature/add_text_layout/controller/add_text_layout_cubit.dart';
 part 'edit_photo_state.dart';
 
 class EditPhotoCubit extends Cubit<EditPhotoState> {
