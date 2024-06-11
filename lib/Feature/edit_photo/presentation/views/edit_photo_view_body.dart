@@ -4,8 +4,6 @@ import 'package:screenshot/screenshot.dart';
 import 'package:wall_papper/Feature/edit_photo/presentation/controller/edit_photo_cubit.dart';
 import 'package:wall_papper/Feature/edit_photo/presentation/views/edit_photo_add_text.dart';
 import 'package:wall_papper/Feature/edit_photo/presentation/views/edit_photo_forground.dart';
-import 'package:wall_papper/Feature/edit_photo/presentation/views/text_add_to_screen_view.dart';
-import 'package:wall_papper/Feature/edit_photo/presentation/widgets/show_message_dialog_delete_text.dart';
 import 'package:wall_papper/core/extension/context_extension.dart';
 import '../../../../core/helper/loading_dialog.dart';
 import '../../../../core/localization/app_string.dart';
