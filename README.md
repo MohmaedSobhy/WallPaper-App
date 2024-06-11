@@ -13,9 +13,6 @@ Easily set your favorite images as wallpapers for your home screen with just a t
 🔍 **Image Search**  
 Search for specific wallpapers using keywords. Whether it's nature, art, or abstract, find the perfect image that suits your style.
 
-🖼️ **Photo Editing**  
-Customize your wallpapers with our built-in editor. Adjust brightness, contrast, and colors to make the image truly yours.
-
 📤 **Share Images**  
 Share your favorite wallpapers with friends and family. Spread the beauty with easy sharing options directly from the app.
 
@@ -28,7 +25,4 @@ Personalize your wallpapers by adding text. Choose from a variety of fonts and s
 ## Installation
 
 To install and run this app locally, follow these steps:
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://g
+https://drive.google.com/file/d/1KWwMRjSs8bLfcLMfb7Sl_Vjmn16DP9hp/view?usp=drive_link
