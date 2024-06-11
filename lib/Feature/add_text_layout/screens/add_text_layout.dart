@@ -11,7 +11,7 @@ class AddTextLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider.value(
-      value: AddTextLayoutCubit.instanse,
+      value: AddTextLayoutCubit.instanse..initTextPosition(context),
       child: Scaffold(
         backgroundColor: Colors.black.withOpacity(0.10),
         body: const Column(
