@@ -23,8 +23,7 @@ class PhotoDetailsCubit extends Cubit<PhotoDetailsState> {
       if (status.isGranted && response.statusCode == 200) {
         await ImageGallerySaver.saveImage(
           Uint8List.fromList(response.data),
-          quality: 60,
-          name: "hello",
+          name: "${DateTime.now()}+${photoUrl[0]}",
         );
         emit(SuccessDownloadImage());
       } else {
