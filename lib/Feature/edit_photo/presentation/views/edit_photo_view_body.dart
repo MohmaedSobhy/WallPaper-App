@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:wall_papper/Feature/edit_photo/presentation/controller/edit_photo_cubit.dart';
-import 'package:wall_papper/Feature/edit_photo/presentation/views/edit_photo_add_text.dart';
+import 'package:wall_papper/Feature/edit_photo/presentation/views/edit_photo_add_text_button.dart';
 import 'package:wall_papper/Feature/edit_photo/presentation/views/edit_photo_forground.dart';
 import 'package:wall_papper/core/extension/context_extension.dart';
 import '../../../../core/helper/loading_dialog.dart';
