@@ -12,7 +12,7 @@ class SelectTextStyle extends StatelessWidget {
         return SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Padding(
-            padding: EdgeInsets.only(left: 10),
+            padding: const EdgeInsets.only(left: 10),
             child: Row(
               children: List.generate(
                 AddTextLayoutCubit.instanse.fonts.length,

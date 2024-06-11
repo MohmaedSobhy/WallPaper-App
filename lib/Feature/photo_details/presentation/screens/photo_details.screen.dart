@@ -24,7 +24,7 @@ class PhotoDetailsScreen extends StatelessWidget {
             },
             icon: const Icon(Icons.arrow_back_ios_new_rounded),
           ),
-          title: Text(AppString.detailPhoto),
+          title: const Text(AppString.detailPhoto),
           actions: [
             IconButton(
               onPressed: () {
