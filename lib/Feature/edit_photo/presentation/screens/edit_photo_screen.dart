@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wall_papper/Feature/edit_photo/presentation/views/edit_photo_view_body.dart';
+import 'package:wall_papper/Feature/edit_photo/presentation/widgets/show_confirmation_dialog.dart';
 
 class EditPhotoScreen extends StatelessWidget {
   final String photoUrl;
@@ -7,11 +8,20 @@ class EditPhotoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      extendBody: true,
-      body: EditPhotoViewBody(
-        photoUrl: photoUrl,
+    return PopScope(
+      canPop: false,
+      onPopInvoked: (didPop) async {
+        if (didPop) {
+          return;
+        }
+        showConfirmationDialoge(context);
+      },
+      child: Scaffold(
+        extendBodyBehindAppBar: true,
+        extendBody: true,
+        body: EditPhotoViewBody(
+          photoUrl: photoUrl,
+        ),
       ),
     );
   }
