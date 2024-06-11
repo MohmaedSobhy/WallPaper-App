@@ -34,7 +34,7 @@ class AddTextLayoutCubit extends Cubit<AddTextLayoutState> {
   ];
   int selectedTextColor = 0, selectedTextStyle = 0;
   double textFontSize = 18;
-  double left = 30, top = 30;
+  double left = 0, top = 0;
   Color texColor = Colors.white;
   TextStyle textStyle = GoogleFonts.robotoMono();
   TextAlign textAlign = TextAlign.center;
@@ -55,6 +55,12 @@ class AddTextLayoutCubit extends Cubit<AddTextLayoutState> {
       ),
     );
     emit(ChangeTextPosition());
+  }
+
+  void initTextPosition(BuildContext context) {
+    if (top == 0) {
+      textAlignCenterPosition(context);
+    }
   }
 
   void changeColor(int index) {
