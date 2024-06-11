@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:wall_papper/Feature/edit_photo/presentation/controller/edit_photo_cubit.dart';
+import 'package:wall_papper/Feature/edit_photo/presentation/views/edit_photo_add_text.dart';
 import 'package:wall_papper/Feature/edit_photo/presentation/views/edit_photo_forground.dart';
-import 'package:wall_papper/Feature/edit_photo/presentation/widgets/custome_icon_button.dart';
+import 'package:wall_papper/Feature/edit_photo/presentation/views/text_add_to_screen_view.dart';
+import 'package:wall_papper/Feature/edit_photo/presentation/widgets/show_message_dialog_delete_text.dart';
 import 'package:wall_papper/core/extension/context_extension.dart';
 import '../../../../core/helper/loading_dialog.dart';
 import '../../../../core/localization/app_string.dart';
@@ -52,14 +54,7 @@ class EditPhotoViewBody extends StatelessWidget {
               const EditPhotoArrowBack(),
               const EditPhotoShareButton(),
               const EditPhotoOpacitySlider(),
-              Positioned(
-                bottom: context.getScreenHeight() * 0.05,
-                left: 75,
-                child: CustomeIconButton(
-                  onTap: () {},
-                  icon: Icons.text_fields_rounded,
-                ),
-              ),
+              const EditPhotoAddTextButton(),
             ],
           );
         },
