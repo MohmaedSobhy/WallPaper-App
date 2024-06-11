@@ -3,7 +3,7 @@ import 'package:wall_papper/Feature/edit_photo/presentation/controller/edit_phot
 import 'package:wall_papper/Feature/edit_photo/presentation/widgets/show_message_dialog_delete_text.dart';
 import 'package:wall_papper/core/widget/cached_network_image_widget.dart';
 
-import 'text_add_to_screen_view.dart';
+import 'text_add_into_screen_view.dart';
 
 class EditPhotoForground extends StatelessWidget {
   final String photoUrl;
