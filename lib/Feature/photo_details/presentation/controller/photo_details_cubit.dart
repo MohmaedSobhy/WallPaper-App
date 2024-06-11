@@ -20,15 +20,16 @@ class PhotoDetailsCubit extends Cubit<PhotoDetailsState> {
     try {
       Response response = await DioService.downloadImage(url: photoUrl);
       var status = await Permission.storage.request();
-      if (status.isGranted) {
+      if (status.isGranted && response.statusCode == 200) {
         await ImageGallerySaver.saveImage(
           Uint8List.fromList(response.data),
           quality: 60,
           name: "hello",
         );
+        emit(SuccessDownloadImage());
+      } else {
+        emit(FailedDownloadImage());
       }
-
-      emit(SuccessDownloadImage());
     } catch (error) {
       emit(FailedDownloadImage());
     }
