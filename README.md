@@ -24,5 +24,5 @@ Personalize your wallpapers by adding text. Choose from a variety of fonts and s
 
 ## Installation
 
-To install and run this app locally, follow these steps:
+To install and run this app locally, follow these steps:<br>
 https://drive.google.com/file/d/1KWwMRjSs8bLfcLMfb7Sl_Vjmn16DP9hp/view?usp=drive_link
