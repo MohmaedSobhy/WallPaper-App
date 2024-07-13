@@ -20,8 +20,9 @@ Share your favorite wallpapers with friends and family. Spread the beauty with e
 Download wallpapers to your device for offline use. Enjoy your selected images anytime, even without an internet connection.
 
 ✏️ **Add Text**  
-Personalize your wallpapers by adding text. Choose from a variety of fonts and styles to create unique and inspirational images.
+Personalize your wallpapers by adding text. Choose from a variety of fonts and styles to create unique and inspirational images. <br>
 
+▶️watch app demo : https://youtu.be/RVaXJcNwhnI
 ## Installation
 
 To install and run this app locally, follow these steps:<br>
