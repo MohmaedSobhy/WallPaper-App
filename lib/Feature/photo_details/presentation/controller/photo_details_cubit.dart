@@ -3,10 +3,11 @@ import 'dart:io';
 import 'dart:typed_data';
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:image_gallery_saver/image_gallery_saver.dart';
+import 'package:image_gallery_saver_plus/image_gallery_saver_plus.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:wallypaper_2/core/helper/save_image_to_phone.dart';
 import '../../../../core/api/dio_service.dart';
 part 'photo_details_state.dart';
 
@@ -21,10 +22,16 @@ class PhotoDetailsCubit extends Cubit<PhotoDetailsState> {
       Response response = await DioService.downloadImage(url: photoUrl);
       var status = await Permission.storage.request();
       if (status.isGranted && response.statusCode == 200) {
-        await ImageGallerySaver.saveImage(
+        await ImageGallerySaverPlus.saveImage(
           Uint8List.fromList(response.data),
           name: "${DateTime.now()}+${photoUrl[0]}",
         );
+        await SaveImageHelper.downloadAndSaveImage(
+          response: response,
+          fileName: "${DateTime.now()}+${photoUrl[0]}",
+        ).then((value) {
+          log(value.toString());
+        });
         emit(SuccessDownloadImage());
       } else {
         emit(FailedDownloadImage());

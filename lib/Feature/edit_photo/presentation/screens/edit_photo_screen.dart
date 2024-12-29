@@ -10,7 +10,7 @@ class EditPhotoScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return PopScope(
       canPop: false,
-      onPopInvoked: (didPop) async {
+      onPopInvokedWithResult: (didPop, dynamic) async {
         if (didPop) {
           return;
         }
