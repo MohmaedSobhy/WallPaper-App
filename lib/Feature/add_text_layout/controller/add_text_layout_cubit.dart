@@ -2,8 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../../../core/extension/context_extension.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 part 'add_text_layout_state.dart';
 

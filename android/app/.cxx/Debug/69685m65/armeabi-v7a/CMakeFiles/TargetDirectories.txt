@@ -1,0 +1,2 @@
+G:/WallPaper-App/android/app/.cxx/Debug/69685m65/armeabi-v7a/CMakeFiles/edit_cache.dir
+G:/WallPaper-App/android/app/.cxx/Debug/69685m65/armeabi-v7a/CMakeFiles/rebuild_cache.dir

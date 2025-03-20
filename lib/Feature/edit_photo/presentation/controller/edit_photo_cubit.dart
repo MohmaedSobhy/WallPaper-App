@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:image_gallery_saver_plus/image_gallery_saver_plus.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:screenshot/screenshot.dart';
@@ -48,7 +47,7 @@ class EditPhotoCubit extends Cubit<EditPhotoState> {
         var status = await Permission.storage.request();
         if (status.isGranted) {
           final name = 'ScreenShot${DateTime.now()}';
-          await ImageGallerySaverPlus.saveImage(capturedImage, name: name);
+         // await ImageGallerySaverPlus.saveImage(capturedImage, name: name);
           emit(SuccessDownloadEditPhoto());
         } else {
           emit(FailedDownloadEditPhoto());

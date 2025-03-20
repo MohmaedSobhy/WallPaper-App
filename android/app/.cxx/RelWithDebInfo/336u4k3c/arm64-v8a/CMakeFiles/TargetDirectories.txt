@@ -1,0 +1,2 @@
+G:/WallPaper-App/android/app/.cxx/RelWithDebInfo/336u4k3c/arm64-v8a/CMakeFiles/edit_cache.dir
+G:/WallPaper-App/android/app/.cxx/RelWithDebInfo/336u4k3c/arm64-v8a/CMakeFiles/rebuild_cache.dir
